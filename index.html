@@ -829,11 +829,26 @@ document.addEventListener('DOMContentLoaded', function(){
   document.querySelectorAll('[data-go-group]').forEach(function(b){
     b.addEventListener('click', function(){ openGroup(b.dataset.goGroup, true); });
   });
-  window.addEventListener('hashchange', function(){ show(location.hash.slice(1)); });
+  // A link to one article (#article-ID, e.g. from X): open News, expand it,
+  // and scroll to it.
+  function openArticle(hash){
+    var card = document.getElementById(hash);
+    if(!card || hash.indexOf('article-') !== 0) return false;
+    go('news', true);
+    var more = card.querySelector('details'); if(more) more.open = true;
+    var nav = document.querySelector('.site-nav');
+    window.scrollTo(0, card.getBoundingClientRect().top + window.scrollY -
+                       (nav ? nav.offsetHeight : 0) - 12);
+    return true;
+  }
+  window.addEventListener('hashchange', function(){
+    var h = location.hash.slice(1);
+    if(!openArticle(h)) show(h);
+  });
   // Open the page in the link, if any; otherwise land on just the header
   // and the section buttons (nothing selected, no sub buttons, no content).
-  show(location.hash.slice(1));
-  window.scrollTo(0, 0);
+  var h0 = location.hash.slice(1);
+  if(!openArticle(h0)){ show(h0); window.scrollTo(0, 0); }
 });
 
 // ---- Strength of schedule chart ------------------------------------------
