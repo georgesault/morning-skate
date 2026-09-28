@@ -11,6 +11,7 @@
   --navy:#0E1B2C;--navy-2:#182A42;--red:#C8102E;--ice:#F4F7FA;--gold:#E0B04F;
   --bg:#EEF2F6;--card:#FFFFFF;--soft:#F5F8FB;--ink:#0E1B2C;--muted:#5B6B7F;
   --line:#DDE4EC;--accent:#C8102E;--link:#1F4FA3;--win:#0F7B45;
+  --chip-top:#FFFFFF;--chip-bot:#E4EBF3;--chip-line:#C3CFDD;
   --shadow:0 1px 2px rgba(14,27,44,.06),0 8px 24px rgba(14,27,44,.06);
   --display:"Barlow Condensed","Arial Narrow",Arial,sans-serif;
   --text:Inter,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;
@@ -21,11 +22,13 @@
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
   --bg:#08111D;--card:#101B2A;--soft:#0C1624;--ink:#E6EDF5;--muted:#8C9BB0;
   --line:#22324A;--accent:#F0506B;--link:#8DB2F5;--win:#4CC38A;
+  --chip-top:#243852;--chip-bot:#172739;--chip-line:#39527A;
   --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.25);
   --s1:#3987e5;--s2:#d95926;--s3:#199e70;--s4:#c98500;--s5:#d55181;--s6:#008300;--s7:#9085e9;--s8:#e66767;}}
 :root[data-theme="dark"]{
   --bg:#08111D;--card:#101B2A;--soft:#0C1624;--ink:#E6EDF5;--muted:#8C9BB0;
   --line:#22324A;--accent:#F0506B;--link:#8DB2F5;--win:#4CC38A;
+  --chip-top:#243852;--chip-bot:#172739;--chip-line:#39527A;
   --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.25);
   --s1:#3987e5;--s2:#d95926;--s3:#199e70;--s4:#c98500;--s5:#d55181;--s6:#008300;--s7:#9085e9;--s8:#e66767;}
 
@@ -173,7 +176,11 @@ a{color:var(--link)}
 .chip{display:flex;align-items:center;justify-content:safe center;gap:8px;min-width:0;font:700 18px var(--text);
   color:var(--ink);background:var(--soft);border:1.5px solid var(--line);border-radius:10px;
   padding:11px 16px 11px 12px;cursor:pointer;white-space:nowrap;transition:.12s}
-.chip:hover{border-color:var(--ink);background:var(--card)}
+/* Sub buttons: their own raised surface, distinct from the bar behind them */
+.chip{background:linear-gradient(180deg,var(--chip-top),var(--chip-bot));
+  border-color:var(--chip-line);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 2px 6px rgba(0,0,0,.12)}
+.chip:hover{border-color:var(--ink);background:linear-gradient(180deg,var(--chip-top),var(--chip-top))}
 .chip[aria-selected="true"]{background:var(--ink);border-color:var(--ink);color:var(--card)}
 .chip-logo img{width:30px;height:30px;display:block}
 .chip{min-height:60px;border-radius:12px}
