@@ -3,6 +3,7 @@
 <title>The Morning Skate · Sep 29, 2026</title>
 <meta name="description" content="5 games tonight, Tuesday, September 29: goalies, lines, injuries, odds, trends and news for every NHL game. Everything in one place, finally.">
 <meta property="og:type" content="website"><meta property="og:site_name" content="The Morning Skate"><meta property="og:title" content="The Morning Skate · Sep 29, 2026"><meta property="og:description" content="5 games tonight, Tuesday, September 29: goalies, lines, injuries, odds, trends and news for every NHL game. Everything in one place, finally."><meta property="og:url" content="https://georgesault.github.io/morning-skate/"><meta property="og:image" content="https://georgesault.github.io/morning-skate/share.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="The Morning Skate · Sep 29, 2026"><meta name="twitter:description" content="5 games tonight, Tuesday, September 29: goalies, lines, injuries, odds, trends and news for every NHL game. Everything in one place, finally."><meta name="twitter:image" content="https://georgesault.github.io/morning-skate/share.png">
+
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0MCA0MCIgYXJpYS1oaWRkZW49InRydWUiPgo8Y2lyY2xlIGN4PSIyMCIgY3k9IjIwIiByPSIxOSIgZmlsbD0iIzE4MkE0MiIvPgo8Y2lyY2xlIGN4PSIyMCIgY3k9IjIwIiByPSIxMi41IiBmaWxsPSJub25lIiBzdHJva2U9IiNDODEwMkUiIHN0cm9rZS13aWR0aD0iMi42Ii8+CjxjaXJjbGUgY3g9IjIwIiBjeT0iMjAiIHI9IjIuOCIgZmlsbD0iI0M4MTAyRSIvPgo8cGF0aCBkPSJNNC41IDE2LjVoMy41TTQuNSAyMy41aDMuNU0zMiAxNi41aDMuNU0zMiAyMy41aDMuNSIgc3Ryb2tlPSIjQzgxMDJFIgpzdHJva2Utd2lkdGg9IjIuMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PC9zdmc+">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -744,6 +745,14 @@ table.goalies td{vertical-align:middle}
 .arc-days a:hover{border-color:var(--ink)}
 .arc-arts{padding-left:18px}.arc-arts small{color:var(--muted)}
 .foot-links{margin:6px 0}.foot-links a{color:#fff}
+/* email signup (footer) */
+.signup{max-width:560px;margin:10px 0 14px;display:grid;gap:8px}
+.signup label{color:#DCE5EF;font-size:14px}
+.signup-row{display:flex;gap:8px}
+.signup input{flex:1;font:15px var(--text);padding:10px 12px;border-radius:8px;
+  border:1px solid rgba(255,255,255,.2);background:rgba(0,0,0,.25);color:#fff}
+.signup button{font:700 15px var(--display);letter-spacing:.06em;text-transform:uppercase;
+  background:var(--gold);color:#1B1405;border:0;border-radius:8px;padding:10px 18px;cursor:pointer}
 </style><script>// The Morning Skate: tabs, section switch, sortable tables, team logos.
 document.documentElement.classList.add('js');
 
@@ -782,6 +791,9 @@ function show(key){
 function go(key, jump){
   if(!show(key)) return;
   history.replaceState(null, '', '#' + key);
+  // Visitor stats (GoatCounter, if on): count each page opened in the site.
+  if(window.goatcounter && window.goatcounter.count)
+    window.goatcounter.count({path: location.pathname + '#' + key});
   var main = document.querySelector('main');
   var nav = document.querySelector('.site-nav');
   var top = main.getBoundingClientRect().top + window.scrollY - nav.offsetHeight - 8;
@@ -3683,14 +3695,15 @@ both days. Records are wins, regulation losses and overtime or shootout losses.<
 <h3>Season series</h3>
 <p>No meetings yet this season.</p></section></main>
 <footer class="site-footer"><div class="wrap">
-<div class="foot-brand"><span class='quiet' aria-hidden='true'><svg class="mark" viewBox="0 0 40 40" aria-hidden="true">
+<div class="foot-brand"><a class="quiet" href="http://127.0.0.1:8787/" aria-label="The Morning Skate"><svg class="mark" viewBox="0 0 40 40" aria-hidden="true">
 <circle cx="20" cy="20" r="19" fill="#182A42"/>
 <circle cx="20" cy="20" r="12.5" fill="none" stroke="#C8102E" stroke-width="2.6"/>
 <circle cx="20" cy="20" r="2.8" fill="#C8102E"/>
 <path d="M4.5 16.5h3.5M4.5 23.5h3.5M32 16.5h3.5M32 23.5h3.5" stroke="#C8102E"
-stroke-width="2.2" stroke-linecap="round"/></svg></span><span class='wordmark'>The Morning <b>Skate</b></span></div>
+stroke-width="2.2" stroke-linecap="round"/></svg></a><span class='wordmark'>The Morning <b>Skate</b></span></div>
 <p>For entertainment and information only. No guarantees, just Puckline's best
 read.</p>
+
 <p class="feedback">Feedback, special requests or partnerships? A note form is coming soon.</p>
 <p class="rg">21+ · Bet responsibly · Gambling problem? Call 1-800-GAMBLER</p>
 <p class='foot-links'><a href='https://georgesault.github.io/morning-skate/editions/'>Past editions</a></p>
