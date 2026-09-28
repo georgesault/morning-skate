@@ -169,7 +169,7 @@ a{color:var(--link)}
   margin-top:12px}
 .chips.active{display:grid}
 .chips.solo{display:none!important}
-.chip{display:flex;align-items:center;justify-content:safe center;gap:8px;min-width:0;font:700 18px var(--text);
+.chip{display:flex;align-items:center;justify-content:safe center;gap:8px;min-width:0;font:700 16px var(--text);
   color:var(--ink);background:var(--soft);border:1.5px solid var(--line);border-radius:10px;
   padding:11px 16px 11px 12px;cursor:pointer;white-space:nowrap;transition:.12s}
 /* Sub buttons: their own raised surface, distinct from the bar behind them */
@@ -178,8 +178,8 @@ a{color:var(--link)}
   box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 2px 6px rgba(0,0,0,.12)}
 .chip:hover{border-color:var(--ink);background:linear-gradient(180deg,var(--chip-top),var(--chip-top))}
 .chip[aria-selected="true"]{background:var(--ink);border-color:var(--ink);color:var(--card)}
-.chip-logo img{width:30px;height:30px;display:block}
-.chip{min-height:60px;border-radius:12px}
+.chip-logo img{width:26px;height:26px;display:block}
+.chip{min-height:52px;border-radius:12px}
 .chip:not(:has(.chip-logo)){padding-left:14px}
 .chip[aria-selected="true"] .chip-logo img{filter:drop-shadow(0 0 1.5px rgba(127,127,127,.9))}
 
@@ -427,9 +427,9 @@ a.quiet{display:flex;color:inherit;text-decoration:none;cursor:default}
   .hero{background:linear-gradient(160deg,var(--navy-2),var(--navy) 70%)}
   .wrap{padding:0 16px}
   .chips{grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
-  .chip{font-size:16px;min-height:54px;padding:9px 10px}
+  .chip{font-size:15px;min-height:48px;padding:8px 10px}
   .site-nav{position:static}  /* stacked buttons would cover a phone screen */
-  .chip-logo img{width:28px;height:28px}
+  .chip-logo img{width:24px;height:24px}
   .bar-date{display:none}
   .site-header .wordmark{font-size:24px}
   .tagline{display:none}
@@ -501,13 +501,13 @@ a.quiet{display:flex;color:inherit;text-decoration:none;cursor:default}
   text-transform:uppercase;color:var(--muted);margin:2px 0 6px}
 .sos-div{display:flex;flex-wrap:wrap;gap:6px;align-content:flex-start}
 .sos-div-name{flex-basis:100%}
-.sos-team,.sched-team,.news-team,.trip-team,.tm-team{--pick:transparent;flex:1 1 calc(25% - 6px);min-width:70px;display:flex;
+.sos-team,.sched-team,.news-team,.trip-team,.tm-team,.ij-team{--pick:transparent;flex:1 1 calc(25% - 6px);min-width:70px;display:flex;
   align-items:center;justify-content:center;gap:5px;font:700 13px var(--text);
   color:var(--ink);background:var(--soft);border:1.5px solid var(--line);border-radius:9px;
   padding:6px 6px;cursor:pointer;position:relative}
-.sos-team .tl img,.sched-team .tl img,.news-team .tl img,.trip-team .tl img,.tm-team .tl img{width:20px;height:20px;display:block}
-.sos-team:hover,.sched-team:hover,.news-team:hover,.trip-team:hover,.tm-team:hover{border-color:var(--ink)}
-.sos-team[aria-pressed="true"],.sched-team[aria-pressed="true"],.news-team[aria-pressed="true"],.trip-team[aria-pressed="true"],.tm-team[aria-pressed="true"]{border-color:var(--pick);box-shadow:inset 0 0 0 1px var(--pick);
+.sos-team .tl img,.sched-team .tl img,.news-team .tl img,.trip-team .tl img,.tm-team .tl img,.ij-team .tl img{width:20px;height:20px;display:block}
+.sos-team:hover,.sched-team:hover,.news-team:hover,.trip-team:hover,.tm-team:hover,.ij-team:hover{border-color:var(--ink)}
+.sos-team[aria-pressed="true"],.sched-team[aria-pressed="true"],.news-team[aria-pressed="true"],.trip-team[aria-pressed="true"],.tm-team[aria-pressed="true"],.ij-team[aria-pressed="true"]{border-color:var(--pick);box-shadow:inset 0 0 0 1px var(--pick);
   background:var(--card)}
 .sos-swatch{position:absolute;left:0;right:0;bottom:-1.5px;height:3px;border-radius:0 0 9px 9px;
   background:var(--pick)}
@@ -679,18 +679,6 @@ h1.art-title{margin:10px 0 0;font:700 clamp(32px,5vw,52px)/1.05 var(--display);
   border-radius:5px;letter-spacing:.06em}
 .res-win{background:var(--win);color:#fff}.res-loss{background:var(--accent);color:#fff}
 .res-void,.res-ungraded{background:var(--soft);border:1px solid var(--line)}
-/* starting goalies */
-table.goalies td{vertical-align:middle}
-.gl-game td{font:700 15px var(--display);letter-spacing:.06em;text-transform:uppercase;
-  background:var(--soft);color:var(--muted)}
-.gl-team{display:flex;align-items:center;gap:8px;white-space:nowrap}
-.gl-team .tl img{width:26px;height:26px;display:block}
-.gl-team small,table.goalies small{color:var(--muted)}
-.gs{font:700 12px var(--display);letter-spacing:.08em;text-transform:uppercase;padding:3px 9px;
-  border-radius:6px;white-space:nowrap}
-.gs-conf{background:var(--win);color:#fff}
-.gs-proj{background:color-mix(in srgb,var(--gold) 30%,var(--card));border:1px solid var(--gold)}
-.gs-unk{background:var(--accent);color:#fff}
 /* injury report */
 .ij-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px}
 .ij-card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px}
@@ -747,6 +735,8 @@ table.goalies td{vertical-align:middle}
   border:1px solid rgba(255,255,255,.2);background:rgba(0,0,0,.25);color:#fff}
 .signup button{font:700 15px var(--display);letter-spacing:.06em;text-transform:uppercase;
   background:var(--gold);color:#1B1405;border:0;border-radius:8px;padding:10px 18px;cursor:pointer}
+.ij-team[aria-pressed="true"]{--pick:var(--accent)}
+.ij-card[hidden],.ij-div[hidden]{display:none}
 </style></head><body>
 <header class="site-header"><div class="wrap bar"><a class="brand" href="./">
 <span class="brand-text"><span class='wordmark'>Puckline <b>Press</b></span>
