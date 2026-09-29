@@ -190,23 +190,23 @@ main.wrap{padding-top:26px;padding-bottom:56px}
 .js section.tab{display:none}
 .js section.tab.active{display:block;animation:fade .2s ease}
 @keyframes fade{from{opacity:.4;transform:translateY(4px)}to{opacity:1;transform:none}}
-section.tab>h2{margin:4px 0 18px;font:700 38px/1 var(--display);text-transform:uppercase;
+:is(section.tab,.live-pane)>h2{margin:4px 0 18px;font:700 38px/1 var(--display);text-transform:uppercase;
   letter-spacing:.02em}
-section.tab>h2::after{content:"";display:block;width:56px;height:4px;margin-top:10px;
+:is(section.tab,.live-pane)>h2::after{content:"";display:block;width:56px;height:4px;margin-top:10px;
   background:var(--accent);border-radius:2px}
 h3{margin:34px 0 12px;padding-left:12px;border-left:4px solid var(--accent);
   font:700 22px/1.1 var(--display);text-transform:uppercase;letter-spacing:.04em}
 .cols h3,.grid h3{margin-top:0}
 p{margin:8px 0}
 em{color:var(--muted)}
-section.tab>p>em,section.tab>p:last-child em{font-size:13px}
+:is(section.tab,.live-pane)>p>em,:is(section.tab,.live-pane)>p:last-child em{font-size:13px}
 strong{font-weight:700}
 
 .cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;align-items:start;
   margin:0 0 18px}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:18px;
   align-items:start;margin-bottom:18px}
-.cols>div,.grid>div,.team-lines,details,section.tab>.tscroll,section.tab>ul{
+.cols>div,.grid>div,.team-lines,details,:is(section.tab,.live-pane)>.tscroll,:is(section.tab,.live-pane)>ul{
   background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px;
   box-shadow:var(--shadow);min-width:0}
 .cols>div>p:first-child>strong:only-child,.grid>div>p:first-child>strong:only-child{
@@ -217,16 +217,16 @@ strong{font-weight:700}
 .notice p{margin:0}
 
 /* lists: flags, injuries, scoring */
-.cols ul,.grid ul,section.tab>ul{list-style:none;margin:6px 0;padding:0}
-.cols li,.grid li,section.tab>ul>li{position:relative;padding:7px 0 7px 18px;
+.cols ul,.grid ul,:is(section.tab,.live-pane)>ul{list-style:none;margin:6px 0;padding:0}
+.cols li,.grid li,:is(section.tab,.live-pane)>ul>li{position:relative;padding:7px 0 7px 18px;
   border-bottom:1px dashed var(--line)}
-.cols li:last-child,.grid li:last-child,section.tab>ul>li:last-child{border-bottom:0}
-.cols li::before,.grid li::before,section.tab>ul>li::before{content:"";position:absolute;
+.cols li:last-child,.grid li:last-child,:is(section.tab,.live-pane)>ul>li:last-child{border-bottom:0}
+.cols li::before,.grid li::before,:is(section.tab,.live-pane)>ul>li::before{content:"";position:absolute;
   left:2px;top:15px;width:7px;height:7px;border-radius:50%;background:var(--accent)}
 
 /* tables */
 .tscroll{overflow-x:auto;margin:6px 0 4px}
-section.tab>.tscroll{padding:6px 10px}
+:is(section.tab,.live-pane)>.tscroll{padding:6px 10px}
 table{border-collapse:collapse;width:100%;font-size:13.5px;font-variant-numeric:tabular-nums}
 th{font:600 11px var(--text);text-transform:uppercase;letter-spacing:.06em;
   color:var(--muted);text-align:left;padding:9px 10px;border-bottom:2px solid var(--line);
@@ -320,7 +320,7 @@ details .cols{margin:0}
 details .team-lines{box-shadow:none}
 
 /* ---- Puckline's picks ------------------------------------------------- */
-section.tab>h2 .badge,.badge{display:inline-block;vertical-align:middle;margin-left:10px;
+:is(section.tab,.live-pane)>h2 .badge,.badge{display:inline-block;vertical-align:middle;margin-left:10px;
   font:700 13px var(--text);letter-spacing:.08em;text-transform:uppercase;padding:4px 10px;
   border-radius:999px;background:var(--gold);color:#1B1405}
 .pick-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:16px}
@@ -438,7 +438,7 @@ a.quiet{display:flex;color:inherit;text-decoration:none;cursor:default}
   .tagline{display:none}
     .segs{grid-template-columns:repeat(2,minmax(0,1fr))}
   .seg{padding:10px 8px;font-size:17px}
-  section.tab>h2{font-size:30px}
+  :is(section.tab,.live-pane)>h2{font-size:30px}
   .f5 .lrow{grid-template-columns:40px repeat(3,minmax(0,1fr))}
 }
 
@@ -741,6 +741,95 @@ h1.art-title{margin:10px 0 0;font:700 clamp(32px,5vw,52px)/1.05 var(--display);
   background:var(--gold);color:#1B1405;border:0;border-radius:8px;padding:10px 18px;cursor:pointer}
 .ij-team[aria-pressed="true"]{--pick:var(--accent)}
 .ij-card[hidden],.ij-div[hidden]{display:none}
+
+/* ---- live game pages (live.js) -------------------------------------- */
+.live [hidden]{display:none!important}
+.live-head{margin:0 0 14px}
+.lv-board{margin-bottom:14px}
+.lv-status{display:inline-flex;align-items:center;gap:8px;font:700 20px var(--display);
+  text-transform:uppercase;letter-spacing:.1em;padding:4px 14px;border-radius:999px;
+  background:rgba(255,255,255,.1)}
+.lv-status.live{background:var(--red)}
+.lv-status.final{background:var(--red)}
+.lv-status.int{background:rgba(224,176,79,.22);color:var(--gold)}
+.lv-dot{width:8px;height:8px;border-radius:50%;background:#fff;animation:lvpulse 1.6s infinite}
+@keyframes lvpulse{50%{opacity:.25}}
+@media (prefers-reduced-motion:reduce){.lv-dot{animation:none}}
+.lv-badges{display:flex;flex-wrap:wrap;gap:5px;margin-top:6px}
+.sh-team.home .lv-badges{justify-content:flex-end}
+.lv-badge{font:700 12px var(--display);letter-spacing:.08em;text-transform:uppercase;
+  padding:2px 8px;border-radius:6px;background:var(--gold);color:var(--navy)}
+table.ls{width:auto;margin:10px auto 2px;border-collapse:collapse;font:600 12px var(--text);
+  color:#D5DEEA;background:none;box-shadow:none;border:0}
+table.ls th,table.ls td{padding:2px 7px;text-align:center;border:0;background:none;
+  color:inherit;white-space:nowrap}
+table.ls th{color:#8FA3BC;font-weight:600}
+table.ls td:first-child{text-align:left;color:#B9C6D6}
+table.ls tr:nth-child(2) td{border-bottom:1px solid rgba(255,255,255,.14)}
+.lv-tv,.lv-odds{font-size:12px;color:#B9C6D6;margin-top:4px}
+.lv-tv span,.lv-odds>span:first-child{font:700 11px var(--display);letter-spacing:.1em;
+  text-transform:uppercase;color:#FF6B82;margin-right:6px}
+.lv-odds .odds.pos{color:#5FD69B}.lv-odds .odds.neg{color:#FF8FA1}
+.lv-tracker{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--gold);
+  border-radius:14px;padding:12px 16px;box-shadow:var(--shadow)}
+.lv-tracker h4{margin:0 0 6px;font:700 15px var(--display);letter-spacing:.1em;
+  text-transform:uppercase;color:var(--muted)}
+.lv-tracker ul{list-style:none;margin:0;padding:0}
+.lv-pick{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:6px 0;
+  border-bottom:1px solid var(--line)}
+.lv-pick:last-child{border-bottom:0}
+.lv-pn{font:700 14px var(--display);color:var(--muted)}
+.lv-pick small{color:var(--muted)}
+.lv-ps{margin-left:auto;font:700 14px var(--display);letter-spacing:.06em;text-transform:uppercase;
+  padding:2px 10px;border-radius:999px;background:var(--soft);border:1px solid var(--line)}
+.lv-pick.good .lv-ps{color:var(--win);border-color:var(--win)}
+.lv-pick.bad .lv-ps{color:var(--accent);border-color:var(--accent)}
+.lv-note{margin:6px 0 0;font-size:12px;color:var(--muted)}
+.lv-stale{margin:6px 0 0;font-size:12px;color:var(--muted);text-align:center}
+.live-btns{display:flex;gap:8px;margin:0 0 18px;flex-wrap:wrap}
+.live-btn{flex:1 1 0;min-width:120px;font:700 17px var(--display);letter-spacing:.06em;
+  text-transform:uppercase;padding:11px 14px;border-radius:12px;cursor:pointer;color:var(--ink);
+  background:linear-gradient(var(--chip-top),var(--chip-bot));border:1px solid var(--chip-line)}
+.live-btn.on{background:var(--navy);color:#fff;border-color:var(--navy);
+  box-shadow:inset 0 -3px 0 var(--gold)}
+.lv-h{margin:4px 0 2px;font:700 30px/1 var(--display);text-transform:uppercase}
+.lv-sub{margin:4px 0 14px;font-size:13px;color:var(--muted)}
+.live-pane h3{font:700 22px var(--display);text-transform:uppercase;margin:18px 0 8px}
+.live-pane h4{font:700 16px var(--display);text-transform:uppercase;letter-spacing:.06em;
+  margin:12px 0 6px;color:var(--muted);display:flex;align-items:center;gap:6px}
+ol.lv-feed{list-style:none;margin:0 0 8px;padding:0;background:var(--card);
+  border:1px solid var(--line);border-radius:12px;overflow:hidden}
+ol.lv-feed li{display:grid;grid-template-columns:48px 22px 1fr;gap:10px;align-items:center;
+  padding:7px 12px;border-bottom:1px solid var(--line);font-size:14px}
+ol.lv-feed li:last-child{border-bottom:0}
+ol.lv-feed li::before{display:none}
+.lv-t{font:600 13px var(--text);color:var(--muted);font-variant-numeric:tabular-nums}
+.lv-nologo{width:20px}
+ol.lv-feed li.lv-goal{background:rgba(224,176,79,.16);font-weight:500}
+ol.lv-feed li.lv-pen{background:rgba(200,16,46,.07)}
+ol.lv-feed li.lv-mark{background:var(--soft);font:700 13px var(--display);letter-spacing:.08em;
+  text-transform:uppercase;color:var(--muted)}
+ol.lv-feed li.lv-quiet{color:var(--muted)}
+.lv-tag{font:700 11px var(--display);letter-spacing:.08em;padding:1px 6px;border-radius:5px;
+  background:var(--navy);color:#fff}
+.lv-run{font-weight:600;color:var(--muted);white-space:nowrap}
+.lv-none{color:var(--muted);font-size:14px}
+.lv-sum ol.lv-feed li{grid-template-columns:44px 22px 1fr}
+table.lv-cmp{max-width:520px}
+@media (max-width:860px){
+  .lv-board{grid-template-columns:1fr 1fr;gap:10px 12px;padding:16px}
+  .lv-board .sh-mid{grid-column:1/-1;order:3}
+  .lv-board .sh-team{gap:6px}
+  .lv-board .sh-score{font-size:56px}
+  .lv-board .mh-city{font-size:18px}
+  .lv-board .sh-team.home .lv-badges{justify-content:center}
+  .lv-board .lv-badges{justify-content:center}
+}
+@media (max-width:600px){
+  .live-btn{min-width:0;font-size:15px;padding:10px 6px}
+  ol.lv-feed li{grid-template-columns:40px 20px 1fr;gap:8px;padding:7px 10px;font-size:13px}
+  table.ls th,table.ls td{padding:2px 4px}
+}
 </style></head><body>
 <header class="site-header"><div class="wrap bar"><a class="brand" href="../">
 <span class="brand-text"><span class='wordmark'>Puckline <b>Press</b></span>
